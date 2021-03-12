@@ -88,11 +88,80 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\User\css\bootstrap.min.css" />
+    <Content Include="Content\User\css\flexslider.css" />
+    <Content Include="Content\User\css\font-awesome.min.css" />
+    <Content Include="Content\User\css\ion.rangeSlider.css" />
+    <Content Include="Content\User\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Content\User\css\jQuery.Brazzers-Carousel.css" />
+    <Content Include="Content\User\css\jquery.bxslider.css" />
+    <Content Include="Content\User\css\jquery.fancybox.css" />
+    <Content Include="Content\User\css\media.css" />
+    <Content Include="Content\User\css\style.css" />
+    <Content Include="Content\User\css\swiper.css" />
+    <Content Include="Content\User\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\User\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\User\img\arr1.png" />
+    <Content Include="Content\User\img\bar.png" />
+    <Content Include="Content\User\img\bx_loader.gif" />
+    <Content Include="Content\User\img\chk1.png" />
+    <Content Include="Content\User\img\chosen-sprite.png" />
+    <Content Include="Content\User\img\color\blue.jpg" />
+    <Content Include="Content\User\img\color\green.jpg" />
+    <Content Include="Content\User\img\color\purple.jpg" />
+    <Content Include="Content\User\img\color\red.jpg" />
+    <Content Include="Content\User\img\color\yellow.jpg" />
+    <Content Include="Content\User\img\controls.png" />
+    <Content Include="Content\User\img\fancybox_loading%402x.gif" />
+    <Content Include="Content\User\img\fancybox_loading.gif" />
+    <Content Include="Content\User\img\fancybox_overlay.png" />
+    <Content Include="Content\User\img\fancybox_sprite%402x.png" />
+    <Content Include="Content\User\img\fancybox_sprite.png" />
+    <Content Include="Content\User\img\logo-b.png" />
+    <Content Include="Content\User\img\logo.png" />
+    <Content Include="Content\User\img\map.png" />
+    <Content Include="Content\User\img\map1.png" />
+    <Content Include="Content\User\img\marker.png" />
+    <Content Include="Content\User\img\nav1.png" />
+    <Content Include="Content\User\img\ok.png" />
+    <Content Include="Content\User\img\remove.jpg" />
+    <Content Include="Content\User\img\sep1.png" />
+    <Content Include="Content\User\img\separator1.png" />
+    <Content Include="Content\User\img\slider\slide1.jpg" />
+    <Content Include="Content\User\img\sprite-skin-flat.png" />
+    <Content Include="Content\User\img\subscribe.jpg" />
+    <Content Include="Content\User\img\viewmode.png" />
+    <Content Include="Content\User\js\chosen.jquery.min.js" />
+    <Content Include="Content\User\js\fancybox\blank.gif" />
+    <Content Include="Content\User\js\fancybox\fancybox.js" />
+    <Content Include="Content\User\js\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\User\js\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\User\js\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\User\js\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\User\js\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\User\js\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="Content\User\js\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Content\User\js\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Content\User\js\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="Content\User\js\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Content\User\js\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Content\User\js\gmap.js" />
+    <Content Include="Content\User\js\ion.rangeSlider.min.js" />
+    <Content Include="Content\User\js\jquery-1.11.2.min.js" />
+    <Content Include="Content\User\js\jQuery.Brazzers-Carousel.js" />
+    <Content Include="Content\User\js\jquery.bxslider.min.js" />
+    <Content Include="Content\User\js\jquery.flexslider-min.js" />
+    <Content Include="Content\User\js\jquery.waypoints.min.js" />
+    <Content Include="Content\User\js\main.js" />
+    <Content Include="Content\User\js\plugins.js" />
+    <Content Include="Content\User\js\progressbar.min.js" />
+    <Content Include="Content\User\js\swiper.jquery.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -100,7 +169,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Content\User\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\User\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\User\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\User\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\User\fonts\FontAwesome.otf" />
+    <Content Include="Content\User\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\User\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\User\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\User\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Site\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,7 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
