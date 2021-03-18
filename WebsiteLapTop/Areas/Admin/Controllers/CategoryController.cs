@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using WebsiteLaptop;
 using WebsiteLaptop.Library;
 using WebsiteLaptop.Models;
+using WebsiteLapTop;
 
 namespace WebsiteLaptop.Areas.Admin.Controllers
 {
