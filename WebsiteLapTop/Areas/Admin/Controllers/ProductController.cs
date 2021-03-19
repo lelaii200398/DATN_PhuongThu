@@ -8,8 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteLaptop;
-using WebsiteLaptop.Library;
 using WebsiteLaptop.Models;
+using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {

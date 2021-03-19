@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WebsiteLaptop.Models;
 
-namespace WebsiteLaptop
+namespace WebsiteLapTop
 {
     public class CheckSlug
     {

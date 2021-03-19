@@ -1,12 +1,10 @@
-﻿namespace WebsiteLapTop
-{
-    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebsiteLapTop;
 
-
+namespace WebsiteLapTop
+{
     public class ModelThongbao
     {
         public string msg { get; set; }

@@ -71,13 +71,21 @@
                                 
                                 <td class="text-center">
                                     
-                                    <label class="switch">
+                                   
                                         @if (item.Status == 1)
-                                        {<input class="changeStatus" data-id="@item.Id" data-controller="Category" type="checkbox" checked>}
+                                        {
+                                            <button type="button" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Ẩn @item.Name">
+                                                <a href="@Url.Action("Status", "Category", new { id = item.Id })" class="text-white"><i class="fas fa-toggle-on"></i></a>
+                                            </button>
+                                        }
                                         else
-                                        {<input class="changeStatus" data-id="@item.Id" data-controller="Category" type="checkbox">}
-                                        <span class="slider round"></span>
-                                    </label>
+                                        {
+                                            <button type="button" class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Hiện @item.Name">
+                                                <a href="@Url.Action("Status", "Category", new { id = item.Id })" class="text-white"><i class="fas fa-toggle-off"></i></a>
+                                            </button>
+                                        }
+                                        
+                                   
                                     <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                         <a href="@Url.Action("Edit", "Category", new { id = item.Id })" class="text-white"><i class="fas fa-pen"></i></a>
                                     </button>
