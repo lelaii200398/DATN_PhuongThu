@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebsiteLaptop.Models.ProductCategory>
+﻿@model IEnumerable<WebsiteLaptop.ProductCategory>
 
 @{
     ViewBag.Title = "Quản lý sản phẩm";
@@ -48,7 +48,7 @@
                         <tr>
                             <td>@stt</td>
                             <td class="text-center">@Html.DisplayFor(modelItem => item.ProductId)</td>
-                            <td><img src="~/Content/Library/images/products/@Html.DisplayFor(modelItem => item.ProductImg)" alt="Error" width="70" class="d-block m-auto" />  </td>
+                            <td><img src="~/Content/Path/product/@Html.DisplayFor(modelItem => item.ProductImg)" alt="Error" width="70" class="d-block m-auto" />  </td>
                             <td><a href="~/Admin/Product/Details/@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a>  </td>
                             <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
                             <td class="text-center">

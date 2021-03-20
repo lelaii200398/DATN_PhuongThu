@@ -13,7 +13,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
         public ActionResult Index()
@@ -40,16 +40,16 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 String avatar = XString.ToAscii(mUser.Fullname);
                 mUser.Password = XString.ToMD5(mUser.Password);
                 mUser.Created_at = DateTime.Now;
-                mUser.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mUser.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 mUser.Updated_at = DateTime.Now;
-                mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = avatar + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mUser.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/user"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Path/user/"), filename);
                     file.SaveAs(Strpath);
                 }
 
@@ -74,9 +74,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mUser.Status = 0;
 
             mUser.Created_at = DateTime.Now;
-            mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             mUser.Updated_at = DateTime.Now;
-            mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mUser).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Đã xóa vào thùng rác!" + " ID = " + id, "success");
@@ -95,7 +95,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mUser.Status = 2;
 
             mUser.Updated_at = DateTime.Now;
-            mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mUser).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -142,9 +142,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 String avatar = XString.ToAscii(mUser.Fullname);
                 mUser.Password = XString.ToMD5(mUser.Password);
                 mUser.Created_at = DateTime.Now;
-                mUser.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mUser.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 mUser.Updated_at = DateTime.Now;
-                mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
@@ -195,7 +195,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mUser.Status = (mUser.Status == 1) ? 2 : 1;
 
             mUser.Updated_at = DateTime.Now;
-            mUser.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mUser.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mUser).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new

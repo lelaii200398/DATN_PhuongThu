@@ -12,7 +12,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -52,9 +52,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                         mMenu.ParentID = 0;
                         mMenu.Status = 2;
                         mMenu.Created_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         mMenu.Updated_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         db.Menu.Add(mMenu);
                         db.SaveChanges();
                         count++;
@@ -87,9 +87,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                         mMenu.ParentID = 0;
                         mMenu.Status = 2;
                         mMenu.Created_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         mMenu.Updated_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         db.Menu.Add(mMenu);
                         db.SaveChanges();
                         count++;
@@ -123,9 +123,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                         mMenu.ParentID = 0;
                         mMenu.Status = 2;
                         mMenu.Created_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         mMenu.Updated_at = DateTime.Now;
-                        mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                        mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                         db.Menu.Add(mMenu);
                         db.SaveChanges();
                         count++;
@@ -150,9 +150,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                     mMenu.ParentID = 0;
                     mMenu.Status = 2;
                     mMenu.Created_at = DateTime.Now;
-                    mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                    mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                     mMenu.Updated_at = DateTime.Now;
-                    mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                    mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                     db.Menu.Add(mMenu);
                     db.SaveChanges();
                     Thongbao.set_flash("Đã thêm 1 menu mới!", "success");
@@ -197,7 +197,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
 
             mMenu.Status = 0;
             mMenu.Updated_at = DateTime.Now;
-            mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mMenu).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Ném thành công vào thùng rác!" + " ID = " + id, "success");
@@ -215,7 +215,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mMenu.Status = 2;
 
             mMenu.Updated_at = DateTime.Now;
-            mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mMenu).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -253,7 +253,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 mMenu.Type = "page";
                 mMenu.Orders = 1;
                 mMenu.Updated_at = DateTime.Now;
-                mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                 db.Entry(mMenu).State = EntityState.Modified;
                 db.SaveChanges();
                 Thongbao.set_flash("Cập nhật thành công!", "success");
@@ -298,7 +298,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mMenu.Status = (mMenu.Status == 1) ? 2 : 1;
 
             mMenu.Updated_at = DateTime.Now;
-            mMenu.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mMenu.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mMenu).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new

@@ -1,7 +1,7 @@
 ﻿@model WebsiteLaptop.Models.MProduct
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo mới sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -99,7 +99,7 @@
                                         @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
-
+                               
                                 <div class="form-group">
                                     @Html.Label("Loại sản phẩm", new { @class = "control-label" })
                                     <div class="">

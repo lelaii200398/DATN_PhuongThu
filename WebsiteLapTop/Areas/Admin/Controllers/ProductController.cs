@@ -12,9 +12,9 @@ using WebsiteLaptop.Models;
 using WebsiteLapTop;
 using WebsiteLapTop.Library;
 
-namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
+namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -90,15 +90,15 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
             ViewBag.ListCat = new SelectList(db.Category.Where(m => m.Status != 0), "ID", "Name", 0);
             if (ModelState.IsValid)
             {
-                mProduct.Price = mProduct.Price + 500000;
-                mProduct.ProPrice = mProduct.ProPrice + 500000;
+                mProduct.Price = mProduct.Price;
+                mProduct.ProPrice = mProduct.ProPrice;
 
                 String strSlug = XString.ToAscii(mProduct.Name);
                 mProduct.Slug = strSlug;
                 mProduct.Created_at = DateTime.Now;
-                mProduct.Created_by = 1;
+                mProduct.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 mProduct.Updated_at = DateTime.Now;
-                mProduct.Updated_by = 1;
+                mProduct.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 // Upload file
                 var file = Request.Files["Image"];
@@ -106,7 +106,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mProduct.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/Product/"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Path/product/"), filename);
                     file.SaveAs(Strpath);
                 }
                 
@@ -141,7 +141,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
                 mProduct.Slug = strSlug;
 
                 mProduct.Updated_at = DateTime.Now;
-                mProduct.Updated_by = 1;
+                mProduct.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 // Upload file
                 var file = Request.Files["Image"];
@@ -149,7 +149,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mProduct.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/Product/"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Path/product/"), filename);
                     file.SaveAs(Strpath);
                 }
                 
@@ -179,7 +179,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
             mProduct.Status = 2;
 
             mProduct.Updated_at = DateTime.Now;
-            mProduct.Updated_by = 1;
+            mProduct.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mProduct).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -220,7 +220,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
             mProduct.Status = (mProduct.Status == 1) ? 2 : 1;
 
             mProduct.Updated_at = DateTime.Now;
-            mProduct.Updated_by = 1;
+            mProduct.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mProduct).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new { Status = mProduct.Status });
@@ -232,7 +232,7 @@ namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
             mProduct.Discount = (mProduct.Discount == 1) ? 2 : 1;
 
             mProduct.Updated_at = DateTime.Now;
-            mProduct.Updated_by = 1;
+            mProduct.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mProduct).State = EntityState.Modified;
             db.SaveChanges();
             

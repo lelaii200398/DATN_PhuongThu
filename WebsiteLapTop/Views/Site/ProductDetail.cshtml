@@ -33,7 +33,7 @@
             </div>
             <div class="col-3">
                 <div class="text-right">
-                    <div class="fb-like" data-href="https://localhost:44376/Site/ProductDetail" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                    <div class="fb-like" data-href="https://localhost:44376/Site/@Model.ID" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
 
     <div class="row my-3">
         <div class="col-5">
-            <a href=""> <img class="img-product mt-5" src="~/Public/images/products/@Model.Image" alt="" width="90%"></a>
+            <a href=""> <img class="img-product mt-5" src="~/Content/Path/product/@Model.Image" alt="" width="90%"></a>
         </div>
         <div class="col-4">
 
@@ -206,7 +206,7 @@
                 <div class="p-item">
                     <a href="~/@i.Slug">
                         <div class="p-img">
-                            <img src="~/Public/images/products/@i.Image" alt="" class="beau">
+                            <img src="~/Content/Path/product/@i.Image" alt="" class="beau">
                             @if (i.Installment == 1)
                             {
                                 <div class="anw">Trả góp <span class="font-weight-bold">0%</span></div>
@@ -215,7 +215,7 @@
                         <div class="couple">
                             @if (i.Discount == 1)
                             {
-                                <img src="~/Public/images/online-giảm-sốc-1x.png" alt="" class="h-100 ">
+                                <img src="~/Content/images/online-giảm-sốc-1x.png" alt="" class="h-100 ">
                             }
                         </div>
                         <div class="p-np">

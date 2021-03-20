@@ -13,7 +13,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -70,15 +70,15 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 mPost.Slug = strSlug;
                 mPost.Type = "post";
                 mPost.Created_at = DateTime.Now;
-                mPost.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mPost.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 mPost.Updated_at = DateTime.Now;
-                mPost.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mPost.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mPost.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/post/"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("v~/Content/Path/post/"), filename);
                     file.SaveAs(Strpath);
                 }
                 db.Post.Add(mPost);
@@ -114,13 +114,13 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 mPost.Slug = strSlug;
                 mPost.Type = "post";
                 mPost.Updated_at = DateTime.Now;
-                mPost.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mPost.Updated_by = int.Parse(Session["Admin_ID"].ToString());
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mPost.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/post/"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Path/post/"), filename);
                     file.SaveAs(Strpath);
                 }
 
@@ -137,7 +137,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mPost.Status = 0;
 
             mPost.Updated_at = DateTime.Now;
-            mPost.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mPost.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mPost).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Đã chuyển vào thùng rác!" + " ID = " + id, "success");
@@ -149,7 +149,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mPost.Status = 2;
 
             mPost.Updated_at = DateTime.Now;
-            mPost.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mPost.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mPost).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -162,7 +162,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mPost.Status = (mPost.Status == 1) ? 2 : 1;
 
             mPost.Updated_at = DateTime.Now;
-            mPost.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mPost.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mPost).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new { Status = mPost.Status });

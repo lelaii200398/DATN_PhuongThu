@@ -1,4 +1,4 @@
-﻿@using WebsiteLaptop.Library
+﻿@using WebsiteLapTop.Library
 @{
     ViewBag.Title = "Giỏ hàng của bạn";
     Layout = "~/Views/Shared/_LayoutSite.cshtml";
@@ -9,7 +9,7 @@
     @if (Session["Cart"] == null)
     {
         <div class="container checkout-cart">
-            <img src="~/Public/images/null.png" alt="Giỏ hàng của bạn đang trống" class="d-block m-auto" width="250" />
+            <img src="~/Content/images/null.png" alt="Giỏ hàng của bạn đang trống" class="d-block m-auto" width="250" />
             <p class="text-center font-weight-bold" style="opacity: .6;">Giỏ hàng của bạn trống</p>
             <div class="btn rounded-0 m-auto d-block" style="width:200px; background:#ee4d2d">
                 <a href="/" class="text-light text-decoration-none">MUA NGAY</a>
@@ -42,7 +42,7 @@
                     <div class="col-5 pl-5">
                         <input class="form-check-input" type="checkbox" style="position: relative;">&nbsp;&nbsp; &nbsp;
                         <a href="~/@c.Slug" class="text-decoration-none text-dark">
-                            <img src="~/Public/images/products/@c.Image" alt=" @c.Name" width="70">
+                            <img src="~/Content/Path/product/@c.Image" alt=" @c.Name" width="70">
                             &nbsp; &nbsp; @c.Name
                         </a>
                     </div>

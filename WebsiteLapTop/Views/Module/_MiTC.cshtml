@@ -6,14 +6,14 @@
     </div>
     <ul class="container">
         @{double Tong = 0;}
-        @foreach (var c in (List<WebsiteLaptop.Library.ModelCart>)Session["Cart"])
+        @foreach (var c in (List<WebsiteLapTop.Library.ModelCart>)Session["Cart"])
         {
             Tong += (c.Price * c.Quantity);
             <li>
                 <div class="row my-3">
                     <div class="col-4">
                         <a href="~/@c.Slug">
-                            <img src="~/Public/images/products/@c.Image" alt="@c.Name" width="70">
+                            <img src="~/Content/Path/product/@c.Image" alt="@c.Name" width="70">
                         </a>
                     </div>
                     <div class="col-7">
@@ -53,7 +53,7 @@
 else
 {
     <div class="t">
-        <img src="~/Public/images/null.png" alt="Trống" width="100">
+        <img src="~/Content/images/null.png" alt="Trống" width="100">
         <div class="pb-5 font-weight-bold" style="opacity: .6;">
             Giỏ hàng của bạn trống
         </div>

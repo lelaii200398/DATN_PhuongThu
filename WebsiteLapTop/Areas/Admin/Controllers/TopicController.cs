@@ -12,7 +12,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class TopicController : Controller
+    public class TopicController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -71,7 +71,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mTopic.Status = (mTopic.Status == 1) ? 2 : 1;
 
             mTopic.Updated_at = DateTime.Now;
-            mTopic.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mTopic.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mTopic).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Thay đổi trạng thái thành công!" + " id = " + id, "success");
@@ -121,9 +121,9 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
 
                 mTopic.Slug = Slug;
                 mTopic.Created_at = DateTime.Now;
-                mTopic.Created_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mTopic.Created_by =  int.Parse(Session["Admin_ID"].ToString());
                 mTopic.Updated_at = DateTime.Now;
-                mTopic.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mTopic.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
 
                 db.Topic.Add(mTopic);
                 db.SaveChanges();
@@ -151,7 +151,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mTopic.Status = 0;
 
             mTopic.Updated_at = DateTime.Now;
-            mTopic.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mTopic.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mTopic).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Ném thành công vào thùng rác!" + " ID = " + id, "success");
@@ -168,7 +168,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             cate.Status = 2;
 
             cate.Updated_at = DateTime.Now;
-            cate.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            cate.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
             db.Entry(cate).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -259,10 +259,10 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
 
                 // Lỗi datatime2
                 mTopic.Created_at = DateTime.Now;
-                mTopic.Created_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mTopic.Created_by =  int.Parse(Session["Admin_ID"].ToString());
 
                 mTopic.Updated_at = DateTime.Now;
-                mTopic.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mTopic.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
 
                 db.Entry(mTopic).State = EntityState.Modified;
                 db.SaveChanges();
@@ -280,7 +280,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mTopic.Status = (mTopic.Status == 1) ? 2 : 1;
 
             mTopic.Updated_at = DateTime.Now;
-            mTopic.Updated_by =  1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mTopic.Updated_by =  int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mTopic).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new { Status = mTopic.Status });

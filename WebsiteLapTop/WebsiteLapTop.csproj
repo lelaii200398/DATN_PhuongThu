@@ -189,55 +189,12 @@
     <Content Include="Content\images\null.png" />
     <Content Include="Content\images\online-giảm-sốc-1x.png" />
     <Content Include="Content\images\photo4.jpg" />
-    <Content Include="Content\images\post\chuong-trinh-mat-lanh-mua-he-cung-mitsubishi-heavy.jpg" />
-    <Content Include="Content\images\post\dieu-hoa-24000btu-dung-cho-phong-bao-nhieu-m2-thi-tiet-kiem-dien-nhat.jpg" />
-    <Content Include="Content\images\post\sieu-thi-gia-dung---noi-khong-voi-gia-ao!.jpg" />
-    <Content Include="Content\images\post\so-sanh-may-lanh-sharp-va-toshiba--nen-mua-loai-nao-tot-nhat.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-breville-870-220v.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-ec685-bk.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-ec685-m.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-ec685-r.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-ec685.r.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-ecp31.21.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-delonghi-la-specialista-ec9335-m.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-espresso-tiross-ts-621.png" />
-    <Content Include="Content\images\products\may-pha-ca-phe-espresso-tiross-ts620.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-espresso-zamboo-zb-86cf-1.2-lit.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-espresso-zamboo-zb90-pro.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-kahchan-ep9139.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-melitta-caffeo-passione-ot.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-melitta-caffeo-passione.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-melitta-caffeo-solo.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-saeco-aulika-top-hsc.png" />
-    <Content Include="Content\images\products\may-pha-ca-phe-tu-dong-delonghi-ecam44-660-b.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-tu-dong-delonghi-ecam45760b.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-tu-dong-delonghi-esam03-120-s.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-tu-dong-delonghi-esam4000-b.jpg" />
-    <Content Include="Content\images\products\may-pha-ca-phe-tu-dong-gaggia-anima-deluxe.jpg" />
-    <Content Include="Content\images\products\may-rang-ca-phe-thcr-01.jpg" />
-    <Content Include="Content\images\products\may-xay-sinh-to-cong-nghiep-promix-pm-819b.jpg" />
-    <Content Include="Content\images\products\máy-rang-cà-phe-gene-cafe-cbr-101-han-quoc.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-cong-nghiep-tianxi-c-44.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-cong-nghiep-tianxi-c32.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-cong-nghiep-tianxi-c36.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-dien-nagakawa-nag0206-6-lit.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-dien-philips-5-lit-hd2103.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-dien-smartcook-pcs-1803.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-inox-tianxi-bm-cs22.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-nagakawa-nag1441.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-nagakawa-nag1471.jpg" />
-    <Content Include="Content\images\products\noi-ap-suat-oxy-hoa-mem-bep-dien-tu-supor-yl183f5.jpg" />
     <Content Include="Content\images\samsung-ua50ru7200-%285%29.jpg" />
-    <Content Include="Content\images\sliders\deal-cuc-dinh.png" />
-    <Content Include="Content\images\sliders\deal-soc.png" />
-    <Content Include="Content\images\sliders\sale-kin-loi.png" />
     <Content Include="Content\images\sliders\stickert5-03-394x75.png" />
     <Content Include="Content\images\sliders\title.png" />
     <Content Include="Content\images\user2-160x160.jpg" />
     <Content Include="Content\images\user\3.jpg" />
     <Content Include="Content\images\user\khach-hang-1.jpg" />
-    <Content Include="Content\images\user\le-gia-lai.jpg" />
-    <Content Include="Content\images\user\le-lai.jpg" />
     <Content Include="Content\images\user\root.jpg" />
     <Content Include="Content\js\bootstrap.bundle.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -248,6 +205,7 @@
     <Content Include="Content\js\sweetalert2%409.js" />
     <Content Include="Content\js\target.min.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Path\product\adasd_2.jpg" />
     <Content Include="Content\User\css\bootstrap.min.css" />
     <Content Include="Content\User\css\flexslider.css" />
     <Content Include="Content\User\css\font-awesome.min.css" />
@@ -322,6 +280,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
@@ -461,6 +421,9 @@
     <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Slider\Trash.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\Profiles.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\_Test.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -513,12 +476,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Content\images\news\" />
     <Folder Include="Content\images\pages\" />
-    <Folder Include="Content\Library\images\post\" />
-    <Folder Include="Content\Library\images\products\" />
-    <Folder Include="Content\Library\images\slider\" />
-    <Folder Include="Content\Library\images\user\" />
+    <Folder Include="Content\images\post\" />
+    <Folder Include="Content\images\products\" />
+    <Folder Include="Content\Path\post\" />
+    <Folder Include="Content\Path\slider\" />
+    <Folder Include="Content\Path\user\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>

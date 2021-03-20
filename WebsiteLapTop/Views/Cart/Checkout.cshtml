@@ -1,8 +1,7 @@
-﻿@using WebsiteLaptop.Library
-@{
-    ViewBag.Title = "Thanh toán";
-    Layout = "~/Views/Shared/_LayoutSite.cshtml";
-}
+﻿@using WebsiteLapTop.Library
+@{ ViewBag.Title = "Thanh toán";
+                Layout = "~/Views/Shared/_LayoutSite.cshtml"; 
+    }
 
 <form method="POST" onsubmit="return validateForm()">
     <div style="min-height:535px;" class="bg-light py-3" id="checkout">
@@ -19,25 +18,24 @@
             @foreach (var c in (List<ModelCart>)Session["Cart"])
             {
                 TongTien += (c.Price * c.Quantity);
-                <div class="row content border-right border-bottom border-left">
-                    <div class="col-5 pl-5">
-                        <img src="~/Public/images/products/@c.Image" alt=" @c.Name" width="70">
-                        &nbsp; &nbsp; @c.Name
-                    </div>
-                    <div class="col-2 text-center"> @c.Price.ToString("N0")₫</div>
-                    <div class="col-2 text-center">
-                        @c.Quantity
-                    </div>
-                    <div class="col-2 text-center" style="color:#ee4d2d">
-                        @((c.Price * c.Quantity).ToString("N0"))₫
-                    </div>
-                </div>
-            }
+<div class="row content border-right border-bottom border-left">
+    <div class="col-5 pl-5">
+        <img src="~/Content/Path/product/@c.Image" alt=" @c.Name" width="70">
+        &nbsp; &nbsp; @c.Name
+    </div>
+    <div class="col-2 text-center"> @c.Price.ToString("N0")₫</div>
+    <div class="col-2 text-center">
+        @c.Quantity
+    </div>
+    <div class="col-2 text-center" style="color:#ee4d2d">
+        @((c.Price * c.Quantity).ToString("N0"))₫
+    </div>
+</div>            }
             <div class="row border bg-white mt-2 py-3">
                 <div class="col-6 profile">
                     Thông tin giao hàng
                     <hr>
-                    <form action="" method="post" ></form>
+                    <form action="" method="post"></form>
                     <div class="row">
                         <div class="col-3 text-right my-3">Họ tên</div>
                         <div class="col-9 my-2">

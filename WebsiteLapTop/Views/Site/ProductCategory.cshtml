@@ -56,7 +56,7 @@
                             <div class="shop-item item border-right border-bottom">
                                 <a href="~/@row.Slug">
                                     <div class="t-img">
-                                        <img src="~/Public/images/products/@row.Image" alt="" class="beau">
+                                        <img src="~/Content/Path/product/@row.Image" alt="" class="beau">
                                         @if (row.Installment == 1)
                                         {
                                             @*<div class="anw">Trả góp <span class="font-weight-bold">0%</span></div>*@
@@ -72,7 +72,7 @@
                                             }
                                             @if (row.Discount == 1)
                                             {
-                                                <img src="~/Public/images/online-giảm-sốc-1x.png" class="h-100" />
+                                                <img src="~/Content/images/online-giảm-sốc-1x.png" class="h-100" />
                                             }
                                         </div>
                                         <div class="t-np">
@@ -87,7 +87,7 @@
                                             </div>
                                             <small class="khongbietdattenlagi float-left text-danger">&nbsp; (-@String.Format("{0:0}", ((row.Price - row.ProPrice) / row.Price * 100))%)</small>
                                         </div>
-                                        <img src="~/Public/images/online-giảm-sốc-1x.png" class="onlinegiamsoc" />
+                                        <img src="~/Content/images/online-giảm-sốc-1x.png" class="onlinegiamsoc" />
                                     </div>
                                 </a>
                             </div>

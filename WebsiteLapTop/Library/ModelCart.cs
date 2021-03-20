@@ -1,10 +1,11 @@
-﻿using System;
+﻿namespace WebsiteLapTop.Library
+{
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebsiteLapTop.Library
-{
+
     public class ModelCart
     {
         public int ProductID { get; set; }

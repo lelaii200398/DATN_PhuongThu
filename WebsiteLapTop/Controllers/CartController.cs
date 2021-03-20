@@ -7,7 +7,7 @@ using WebsiteLaptop.Models;
 using WebsiteLapTop;
 using WebsiteLapTop.Library;
 
-namespace WebsiteBanDoGiaDung.Controllers
+namespace WebsiteLapTop.Controllers
 {
     public class CartController : Controller
     {

@@ -8,11 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteLaptop.Models;
 using WebsiteLapTop;
+using WebsiteLapTop.Areas.Admin.Controllers;
 using WebsiteLapTop.Library;
 
 namespace WebsiteLaptop.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -94,9 +95,9 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
 
                 MCategory.Slug = Slug;
                 MCategory.Created_at = DateTime.Now;
-                MCategory.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                MCategory.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 MCategory.Updated_at = DateTime.Now;
-                MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 db.Category.Add(MCategory);
                 db.SaveChanges();
@@ -154,7 +155,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
                 MCategory.Slug = Slug;
 
                 MCategory.Updated_at = DateTime.Now;
-                MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 db.Entry(MCategory).State = EntityState.Modified;
                 db.SaveChanges();
@@ -180,9 +181,9 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             MCategory.Status = 0;
 
             MCategory.Created_at = DateTime.Now;
-            MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             MCategory.Updated_at = DateTime.Now;
-            MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(MCategory).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Ném thành công vào thùng rác!" + " ID = " + id, "success");
@@ -199,7 +200,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             MCategory.Status = 2;
 
             MCategory.Updated_at = DateTime.Now;
-            MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(MCategory).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -220,7 +221,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             MCategory.Status = (MCategory.Status == 1) ? 2 : 1;
 
             MCategory.Updated_at = DateTime.Now;
-            MCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            MCategory.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(MCategory).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new

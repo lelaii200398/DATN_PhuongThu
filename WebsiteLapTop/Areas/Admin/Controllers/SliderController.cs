@@ -13,7 +13,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class SliderController : Controller
+    public class SliderController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -57,16 +57,16 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 String strSlug = XString.ToAscii(mSlider.Name);
                 mSlider.Url = strSlug;
                 mSlider.Created_at = DateTime.Now;
-                mSlider.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mSlider.Created_by = int.Parse(Session["Admin_ID"].ToString());
                 mSlider.Updated_at = DateTime.Now;
-                mSlider.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mSlider.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
                     mSlider.Image = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/Slider/"), filename);
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Path/Slider/"), filename);
                     file.SaveAs(Strpath);
                 }
 
@@ -103,7 +103,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 String strSlug = XString.ToAscii(mSlider.Name);
 
                 mSlider.Updated_at = DateTime.Now;
-                mSlider.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+                mSlider.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
@@ -160,7 +160,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
 
             mSlider.Status = 0;
             mSlider.Updated_at = DateTime.Now;
-            mSlider.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mSlider.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mSlider).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Ném thành công vào thùng rác!" + " ID = " + id, "success");
@@ -178,7 +178,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mSlider.Status = 2;
 
             mSlider.Updated_at = DateTime.Now;
-            mSlider.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mSlider.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mSlider).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");

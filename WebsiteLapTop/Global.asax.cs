@@ -16,7 +16,7 @@ namespace WebsiteLapTop
         }
         protected void Session_Start()
         {
-            Session["Notification"] = "";
+            Session["Thongbao"] = "";
 
             // Administrators
             Session["Admin_Name"] = null;

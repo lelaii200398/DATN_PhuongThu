@@ -12,7 +12,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -81,7 +81,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mOrder.Trash = 0;
 
             mOrder.Updated_at = DateTime.Now;
-            mOrder.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mOrder.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mOrder).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
@@ -143,7 +143,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
 
             mOrder.ExportDate = DateTime.Now;
             mOrder.Updated_at = DateTime.Now;
-            mOrder.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
+            mOrder.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mOrder).State = EntityState.Modified;
             db.SaveChanges();
             return Json(new { s = mOrder.Status, t = mOrder.ExportDate.ToString() });

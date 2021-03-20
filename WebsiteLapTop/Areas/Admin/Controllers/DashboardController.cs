@@ -7,7 +7,7 @@ using WebsiteLaptop.Models;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         // GET: Admin/Dashboard
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();

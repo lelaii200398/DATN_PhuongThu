@@ -12,7 +12,7 @@ using WebsiteLapTop.Library;
 
 namespace WebsiteLapTop.Areas.Admin.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         private WebsiteLaptopDbContext db = new WebsiteLaptopDbContext();
 
@@ -73,7 +73,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             {
                 mContact.Flag = 1;
                 mContact.Updated_at = DateTime.Now;
-                mContact.Updated_by = 1 /*int.Parse(Session["Admin_ID"].ToString());*/;
+                mContact.Updated_by = int.Parse(Session["Admin_ID"].ToString());
 
                 db.Entry(mContact).State = EntityState.Modified;
                 db.SaveChanges();
@@ -93,7 +93,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             }
             mContact.Status = 0;
             mContact.Updated_at = DateTime.Now;
-            mContact.Updated_by = 1 /*int.Parse(Session["Admin_ID"].ToString());*/;
+            mContact.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mContact).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Ném thành công vào thùng rác!" + " ID = " + id, "success");
@@ -110,7 +110,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             }
             mContact.Status = 1;
             mContact.Updated_at = DateTime.Now;
-            mContact.Updated_by = 1 /*int.Parse(Session["Admin_ID"].ToString());*/;
+            mContact.Updated_by = int.Parse(Session["Admin_ID"].ToString());
             db.Entry(mContact).State = EntityState.Modified;
             db.SaveChanges();
             Thongbao.set_flash("Khôi phục thành công!" + " ID = " + id, "success");
