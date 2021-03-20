@@ -16,7 +16,7 @@ namespace WebsiteLapTop
                 case "Category":
                     if (id != null)
                     {
-                        if (db.Category.Where(m => m.Slug == Slug && m.Id != id).Count() > 0)
+                        if (db.Category.Where(m => m.Slug == Slug && m.ID != id).Count() > 0)
                             return false;
                     }
                     else

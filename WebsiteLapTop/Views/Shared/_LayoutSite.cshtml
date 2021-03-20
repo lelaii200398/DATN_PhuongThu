@@ -1,0 +1,67 @@
+﻿
+<!DOCTYPE HTML>
+<HTML lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="#" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@((ViewBag.MetaDesc) ?? "Kinh doanh laptop rẻ")" />
+    <meta name="keywords" content="@((ViewBag.MetaKey) ?? "Kinh doanh laptop rẻ.")" />
+
+    <link rel="icon" href="~/Content/images/icon-k.png">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <!-- owl -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/css/imageSprite.css" />
+    <script src="~/Content/js/sweetalert2@9.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="~/Content/css/stylee.css" rel="stylesheet" />
+    
+    @*<link href="~/Content/css/styleshop.css" rel="stylesheet" />*@
+    <script src="~/Content/js/jquery-3.5.1.js"></script>
+     <script src="~/Content/js/SomeeAdsRemover.js"></script>
+
+
+</head>
+
+<body>
+
+    @Html.Action("Header", "Module")
+
+    @RenderBody()
+
+    @Html.Action("Footer", "Module")
+
+    <div style="background:#f3f3f3">
+        <div class="copyright container-91">
+            © Now. Công ty trách nhiệm hữu hạn GPDKKD: null <br> Address: 1600 Pennsylvania Avenue NW
+            Washington, D.C. 20500. Phone number: (+84) 948 135 903. Email: legialai98.hitu@gmail.com. Content by:
+            Lai.
+        </div>
+    </div>
+
+    <div id="bttop" style="display: none;">
+        <span>Về đầu trang<i class="fas fa-long-arrow-alt-up text-center px-2 pb-1" style="transform: rotate(90deg);"></i></span>
+    </div>
+    <!-- owl -->
+    <script src="~/Content/js/owl.carousel.js"></script>
+
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/target.min.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0&appId=699266887289373&autoLogAppEvents=1" nonce="xJm9L3lp"></script>
+    <script>
+    $(document).ready(function () {
+        $("div[style='opacity: 0.9; z-index: 2147483647; position: fixed; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: #202020; margin: 0px; padding: 0px;']").remove();
+        $("div[style='margin: 0px; padding: 0px; left: 0px; width: 100%; height: 65px; right: 0px; bottom: 0px; display: block; position: fixed; z-index: 2147483647; opacity: 0.9; background-color: rgb(32, 32, 32);']").remove();
+        $("div[onmouseover='S_ssac();']").remove();
+        $("center").remove();
+        $("div[style='height: 65px;']").remove();
+    });
+</script>
+</body>
+
+</HTML>

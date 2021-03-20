@@ -16,7 +16,23 @@ namespace WebsiteLapTop
         }
         protected void Session_Start()
         {
-            Session["Thongbao"] = "";
+            Session["Notification"] = "";
+
+            // Administrators
+            Session["Admin_Name"] = null;
+            Session["Admin_ID"] = null;
+            Session["Admin_Images"] = null;
+            Session["Admin_Address"] = null;
+            Session["Admin_Email"] = null;
+            Session["Admin_Created_at"] = null;
+            // Customer
+            Session["User_Name"] = null;
+            Session["User_ID"] = null;
+
+
+            Session["Cart"] = null;
+            Session["keywords"] = null;
+            Session["Status"] = null;
         }
     }
 }

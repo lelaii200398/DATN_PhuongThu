@@ -1,0 +1,7 @@
+﻿@if (Thongbao.has_flash())
+{
+    ModelThongbao Notifi = Thongbao.get_flash();
+    <input type="hidden" value="@Notifi.msg_type" name="u_mgs_type" />
+    <input type="hidden" value=" @Notifi.msg" name="u_mgs" />
+}
+

@@ -1,54 +1,139 @@
-﻿
+﻿@model IEnumerable<WebsiteLaptop.Models.MCategory>
 @{
-    ViewBag.Title = "Trang chủ";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Kinh doanh laptop rẻ";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
 }
-<div class="fr-pop-wrap">
 
-    <h3 class="component-ttl"><span>Popular products</span></h3>
+<div class="home-slider bg-" style="background:#f3f3f3">
+    @Html.Action("HomeSlideShow", "Module")
+</div>
+
+<div class="promo-so">
+    <div>
+        <img src="~/Public/images/sliders/title.png" alt="" class="d-block  m-auto pb-2">
+    </div>
+    <div class="container-91 taiche">
+        <div id="owl-wrap" class="owl-carousel owl-theme">
+
+            @foreach (var p in ViewBag.PromotionProduct)
+            {
+                <div class="p-item">
+                    <a href="@p.Slug">
+                        <div class="p-img">
+                            @if (p.Installment == 1)
+                            {
+                                <div class="anw">Trả góp <span class="font-weight-bold">0%</span></div>
+                            }
+                            <img src="~/Public/images/products/@p.Image" alt="" class="beau">
+                        </div>
+                        <div class="couple">
+                            @if (p.Discount == 1)
+                            {
+                                <img src="~/Public/images/online-giảm-sốc-1x.png" alt="" class="h-100">
+                            }
+                        </div>
+                        <div class="p-np">
+                            @p.Name
+                        </div>
+                        <div class="p-price">
+                            <div class="price">
+                                @String.Format("{0:0,0₫}", p.ProPrice)
+                            </div>
+                            <div class="old-price float-left">
+                                @String.Format("{0:0,0₫}", p.Price)
+                            </div>
+                            <div class="khongbietdattenlagi float-left"> (-@String.Format("{0:0}", ((p.Price - p.ProPrice) / p.Price * 100))%)</div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
 
+<div class="promo-so">
+    <div class="container-91 h4 text-center font-weight-bold mb-2" style="color:#d0021b;">
+        SẢN PHẨM MỚI
+    </div>
+    <div class="container-91 taiche">
+        <div id="new-product" class="owl-carousel owl-theme">
 
-    <div class="fr-pop-tab-cont">
+            @foreach (var p in ViewBag.NewProduct)
+            {
+                <div class="p-item">
+                    <a href="@p.Slug">
+                        <div class="p-img">
+                            @if (p.Installment == 1)
+                            {
+                                <div class="anw">Trả góp <span class="font-weight-bold">0%</span></div>
+                            }
+                            <img src="~/Public/images/products/@p.Image" alt="" class="beau">
+                        </div>
+                        <div class="couple">
+                            @if (p.Discount == 1)
+                            {
+                                <img src="~/Public/images/online-giảm-sốc-1x.png" alt="" class="h-100">
+                            }
+                        </div>
+                        <div class="p-np">
+                            @p.Name
+                        </div>
+                        <div class="p-price">
+                            <div class="price">
+                                @String.Format("{0:0,0₫}", p.ProPrice)
+                            </div>
+                            <div class="old-price float-left">
+                                @String.Format("{0:0,0₫}", p.Price)
+                            </div>
+                            <div class="khongbietdattenlagi float-left"> (-@String.Format("{0:0}", ((p.Price - p.ProPrice) / p.Price * 100))%)</div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="tab-products">
+    <div class="container-91">
+        <div class="title">Sản phẩm theo danh mục</div>
+        <div class="tab-tab-tab">
 
-        <p class="fr-pop-tab-mob active"></p>
-        <div class="flexslider prod-items fr-pop-tab">
-
-            <ul class="slides">
-
-                <li class="prod-i">
-                    <div class="prod-i-top">
-                        <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="http://placehold.it/250x350" alt="Aspernatur excepturi rem"><!-- NO SPACE --></a>
-                        <p class="prod-i-info">
-                            <a href="#" class="prod-i-favorites"><span>Wishlist</span><i class="fa fa-heart"></i></a>
-                            <a href="#" class="qview-btn prod-i-qview"><span>Quick View</span><i class="fa fa-search"></i></a>
-                            <a class="prod-i-compare" href="#"><span>Compare</span><i class="fa fa-bar-chart"></i></a>
-                        </p>
-                        <p class="prod-i-addwrap">
-                            <a href="#" class="prod-i-add">Go to detail</a>
-                        </p>
-                    </div>
-                    <h3>
-                        <a href="product.html">Aspernatur excepturi rem</a>
-                    </h3>
-                    <p class="prod-i-price">
-                        <b>$90</b>
-                    </p>
-                    <div class="prod-i-skuwrapcolor">
-                        <ul class="prod-i-skucolor">
-                            <li class="bx_active"><img src="~/Content/User/img/color/red.jpg" alt="Red"></li>
-                            <li><img src="~/Content/User/img/color/blue.jpg" alt="Blue"></li>
-                        </ul>
-                    </div>
-                </li>
-
-
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                @{ var i = 0;}
+                @foreach (var cat in Model)
+                {
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link @(i == 0 ? "active" : "")" id="tab-tab-@cat.ID" data-toggle="pill" href="#tab-@cat.ID" role="tab"
+                            aria-controls="tab-tab-tab-@cat.ID" aria-selected="true">@cat.Name</a>
+                    </li>
+                    i++;
+                }
             </ul>
 
+            <div class="tab-content" id="pills-tabContent">
+                @{ i = 0;}
+                @foreach (var cat in Model)
+                {
+                    <div class="tab-pane fade show @(i == 0 ? "active" : "") " id="tab-@cat.ID" role="tabpanel" aria-labelledby="tab-tab-@cat.ID">
+                        @Html.Action("ProductHome", "Site", new { catid = cat.ID })
+                    </div>
+                    i++;
+                }
+            </div>
         </div>
-
-
-    </div><!-- .fr-pop-tab-cont -->
-
-
+    </div>
 </div>
+<div class="py-3" style="background:#f3f3f3">
+    <div class="container-91">
+        <a href=""><img src="~/Public/images/sliders/" alt="" width="396"></a>
+        <a href=""><img src="~/Public/images/sliders/" alt="" width="396"></a>
+        <a href=""><img src="~/Public/images/sliders/" alt="" width="396"></a>
+    </div>
+</div>
+<div class="news-home" style="background:#f3f3f3">
+    @Html.Action("NewsHome", "Module")
+</div>
+@Html.Action("Popu", "Module")
+
+

@@ -1,0 +1,5 @@
+﻿@model IEnumerable<WebsiteLaptop.Models.MMenu>
+<a href="~/" class="text-white text-decoration-none mr-3">Trang Chủ</a>
+@foreach (var t in Model)
+{
+<a href="~/@t.Link" class="text-white text-decoration-none mr-3">@t.Name</a>}

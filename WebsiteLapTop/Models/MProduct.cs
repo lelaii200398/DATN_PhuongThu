@@ -11,38 +11,35 @@
     public class MProduct
     {
         [Key]
-        public int Id { get; set; }
+        [Required]
+        public int ID { get; set; }
         [Required(ErrorMessage = "Vui lòng chọn nhập tên sản phẩm")]
         public string Name { get; set; }
         public string Slug { get; set; }
-        public string Img { get; set; }
+        [Required(ErrorMessage = "Vui lòng chọn loại sản phẩm")]
+        public int CateID { get; set; }
+        public string Image { get; set; }
+        public string ImageList { get; set; }
+        public string NewPromotion { get; set; }
+        public int Installment { get; set; }
+        public int Discount { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập chi tiết sản phẩm")]
         public string Detail { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập mô tả sản phẩm")]
         public string Description { get; set; }
-        public int Number { get; set; }
-        public int Price { get; set; }
-        public int Price_sale { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập thông số kỹ thuật")]
+        public string Specification { get; set; }
 
-        public string Metakey { get; set; }
-
-        public string Metadesc { get; set; }
-
-        public DateTime? Created_at { get; set; }
-
-        public int? Created_by { get; set; }
-
-        public DateTime? Updated_at { get; set; }
-
-        public int? Updated_by { get; set; }
+        public double Price { get; set; }
+        public int Quantity { get; set; }
+        public double ProPrice { get; set; }
+        public string MetaKey { get; set; }
+        public string MetaDesc { get; set; }
 
         public int Status { get; set; }
-
-        public int Discount { get; set; }
-        [Required(ErrorMessage = "Vui lòng chọn loại sản phẩm")]
-        public int CatID { get; set; }
-        //public int CategoryId { set; get; }
-        //[ForeignKey("CategoryId")]
-        //public virtual MCategory Category { get; set; }
+        public DateTime Created_at { get; set; }
+        public int Created_by { get; set; }
+        public DateTime Updated_at { get; set; }
+        public int Updated_by { get; set; }
     }
 }

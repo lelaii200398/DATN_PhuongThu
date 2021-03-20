@@ -9,9 +9,10 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteLaptop;
 using WebsiteLaptop.Models;
+using WebsiteLapTop;
 using WebsiteLapTop.Library;
 
-namespace WebsiteLapTop.Areas.Admin.Controllers
+namespace WebsiteBanDoGiaDung.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
@@ -23,14 +24,14 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             ViewBag.countTrash = db.Product.Where(m => m.Status == 0).Count();
             var list = from p in db.Product
                        join c in db.Category
-                       on p.CatID equals c.Id
+                       on p.CateID equals c.ID
                        where p.Status != 0
-                       where p.CatID == c.Id
+                       where p.CateID == c.ID
                        orderby p.Created_at descending
                        select new ProductCategory()
                        {
-                           ProductId = p.Id,
-                           ProductImg = p.Img,
+                           ProductId = p.ID,
+                           ProductImg = p.Image,
                            ProductName = p.Name,
                            ProductStatus = p.Status,
                            ProductDiscount = p.Discount,
@@ -42,14 +43,14 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
         {
             var list = from p in db.Product
                        join c in db.Category
-                       on p.CatID equals c.Id
+                       on p.CateID equals c.ID
                        where p.Status == 0
-                       where p.CatID == c.Id
+                       where p.CateID == c.ID
                        orderby p.Created_at descending
                        select new ProductCategory()
                        {
-                           ProductId = p.Id,
-                           ProductImg = p.Img,
+                           ProductId = p.ID,
+                           ProductImg = p.Image,
                            ProductName = p.Name,
                            ProductStatus = p.Status,
                            ProductDiscount = p.Discount,
@@ -89,8 +90,8 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             ViewBag.ListCat = new SelectList(db.Category.Where(m => m.Status != 0), "ID", "Name", 0);
             if (ModelState.IsValid)
             {
-                mProduct.Price = mProduct.Price;
-                mProduct.Price_sale = mProduct.Price_sale;
+                mProduct.Price = mProduct.Price + 500000;
+                mProduct.ProPrice = mProduct.ProPrice + 500000;
 
                 String strSlug = XString.ToAscii(mProduct.Name);
                 mProduct.Slug = strSlug;
@@ -100,15 +101,15 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 mProduct.Updated_by = 1;
 
                 // Upload file
-                var file = Request.Files["Img"];
+                var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
-                    mProduct.Img = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/products/"), filename);
+                    mProduct.Image = filename;
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/Product/"), filename);
                     file.SaveAs(Strpath);
                 }
-
+                
                 db.Product.Add(mProduct);
                 db.SaveChanges();
                 Thongbao.set_flash("Thêm mới sản phẩm thành công!", "success");
@@ -143,15 +144,15 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
                 mProduct.Updated_by = 1;
 
                 // Upload file
-                var file = Request.Files["Img"];
+                var file = Request.Files["Image"];
                 if (file != null && file.ContentLength > 0)
                 {
                     String filename = strSlug + file.FileName.Substring(file.FileName.LastIndexOf("."));
-                    mProduct.Img = filename;
-                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/products/"), filename);
+                    mProduct.Image = filename;
+                    String Strpath = Path.Combine(Server.MapPath("~/Content/Library/images/Product/"), filename);
                     file.SaveAs(Strpath);
                 }
-
+                
                 db.Entry(mProduct).State = EntityState.Modified;
                 db.SaveChanges();
                 Thongbao.set_flash("Đã cập nhật lại thông tin sản phẩm!", "success");
@@ -234,7 +235,7 @@ namespace WebsiteLapTop.Areas.Admin.Controllers
             mProduct.Updated_by = 1;
             db.Entry(mProduct).State = EntityState.Modified;
             db.SaveChanges();
-
+            
             return Json(new { Discount = mProduct.Discount });
         }
     }

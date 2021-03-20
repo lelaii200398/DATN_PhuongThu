@@ -1,7 +1,7 @@
 ﻿@model WebsiteLaptop.Models.MCategory
 
 @{
-    ViewBag.Title = "Xóa: " + Model.Name;
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -18,7 +18,7 @@
                         <div class="float-right pt-1">
                             @using (Html.BeginForm())
                             {
-                                @Html.AntiForgeryToken()
+                @Html.AntiForgeryToken()
 
                                 <div class="form-actions no-color">
                                     <button type="submit" class="btn btn-danger btn-sm">
@@ -38,8 +38,8 @@
                 <table class="table table-bordered table-hover">
 
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Id)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Id)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.ID)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.ID)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Name)</th>
@@ -49,20 +49,20 @@
                         <td scope="col">  @Html.DisplayFor(model => model.Slug)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.ParentId)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.ParentId)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.ParentID)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.ParentID)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Orders)</th>
                         <td scope="col">  @Html.DisplayFor(model => model.Orders)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Metakey)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Metakey)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.MetaKey)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.MetaKey)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Metadesc)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Metadesc)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.MetaDesc)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.MetaDesc)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Created_at)</th>

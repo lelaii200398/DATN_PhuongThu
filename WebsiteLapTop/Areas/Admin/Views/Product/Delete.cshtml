@@ -1,6 +1,5 @@
 ﻿@model WebsiteLaptop.Models.MProduct
 
-
 @{
     ViewBag.Title = "Xóa vĩnh viễn sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -40,8 +39,8 @@
                 <table class="table table-bordered table-hover">
 
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Id)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Id)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.ID)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.ID)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Name)</th>
@@ -52,32 +51,32 @@
                         <td scope="col">  @Html.DisplayFor(model => model.Slug)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Number)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Number)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Quantity)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.Quantity)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Price)</th>
                         <td scope="col">  @Html.DisplayFor(model => model.Price)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.CatID)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.CatID)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.CateID)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.CateID)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Img)</th>
-                        <td scope="col"><img src="~/Public/Library/images/product/@Html.DisplayFor(model => model.Img)" alt="@Html.DisplayFor(model => model.Img)" width="100" />  </td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.Image)</th>
+                        <td scope="col"><img src="~/Content/Library/product/@Html.DisplayFor(model => model.Image)" alt="@Html.DisplayFor(model => model.Image)" width="100" />  </td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Detail)</th>
                         <td scope="col"> @Html.Raw("1")</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Metadesc)</th>
-                        <td scope="col"> @Html.DisplayFor(model => model.Metadesc)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.MetaDesc)</th>
+                        <td scope="col"> @Html.DisplayFor(model => model.MetaDesc)</td>
                     </tr>
                     <tr>
-                        <th scope="col"> @Html.DisplayNameFor(model => model.Metakey)</th>
-                        <td scope="col">  @Html.DisplayFor(model => model.Metakey)</td>
+                        <th scope="col"> @Html.DisplayNameFor(model => model.MetaKey)</th>
+                        <td scope="col">  @Html.DisplayFor(model => model.MetaKey)</td>
                     </tr>
                     <tr>
                         <th scope="col"> @Html.DisplayNameFor(model => model.Created_at)</th>

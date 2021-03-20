@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WebsiteLaptop;
 using WebsiteLaptop.Models;
 using WebsiteLapTop;
 using WebsiteLapTop.Library;
@@ -25,7 +24,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             ViewBag.GetAllCategory = list;
             foreach (var row in list)
             {
-                var temp_link = db.Link.Where(m => m.Type == "category" && m.TableId == row.Id);
+                var temp_link = db.Link.Where(m => m.Type == "category" && m.TableId == row.ID);
                 if (temp_link.Count() > 0)
                 {
                     var row_link = temp_link.First();
@@ -39,7 +38,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
                     row_link.Name = row.Name;
                     row_link.Slug = row.Slug;
                     row_link.Type = "category";
-                    row_link.TableId = row.Id;
+                    row_link.TableId = row.ID;
                     db.Link.Add(row_link);
                 }
             }
@@ -67,8 +66,8 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
         // GET: Admin/Category/Create
         public ActionResult Create()
         {
-            ViewBag.List = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
-            ViewBag.Orders = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
+            ViewBag.listCat = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
+            ViewBag.listOrder = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
 
             return View();
         }
@@ -80,9 +79,9 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             ViewBag.listOrder = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
             if (ModelState.IsValid)
             {
-                if (MCategory.ParentId == null)
+                if (MCategory.ParentID == null)
                 {
-                    MCategory.ParentId = 0;
+                    MCategory.ParentID = 0;
                 }
                 String Slug = XString.ToAscii(MCategory.Name);
                 CheckSlug check = new CheckSlug();
@@ -110,9 +109,8 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
         }
         public ActionResult Edit(int? id)
         {
-            
-            ViewBag.List = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
-            ViewBag.Orders = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
+            ViewBag.listCat = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
+            ViewBag.listOrder = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
             MCategory MCategory = db.Category.Find(id);
             if (MCategory == null)
             {
@@ -126,18 +124,13 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MCategory MCategory)
         {
-            ViewBag.List = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
-            ViewBag.Orders = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
+            ViewBag.listCat = new SelectList(db.Category.Where(m => m.Status == 1), "ID", "Name", 0);
+            ViewBag.listOrder = new SelectList(db.Category.Where(m => m.Status == 1), "Orders", "Name", 0);
             if (ModelState.IsValid)
             {
-                if (MCategory.ParentId == null)
-                {
-                    MCategory.ParentId = 0;
-                }
                 String Slug = XString.ToAscii(MCategory.Name);
-                int ID = MCategory.Id;
-
-                if (db.Category.Where(m => m.Slug == Slug && m.Id != ID).Count() > 0)
+                int ID = MCategory.ID;
+                if (db.Category.Where(m => m.Slug == Slug && m.ID != ID).Count() > 0)
                 {
                     Thongbao.set_flash("Tên danh mục đã tồn tại, vui lòng thử lại!", "warning");
                     return RedirectToAction("Edit", "Category");
@@ -152,7 +145,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
                     Thongbao.set_flash("Tên danh mục đã tồn tại trong POST, vui lòng thử lại!", "warning");
                     return RedirectToAction("Edit", "Category");
                 }
-                if (db.Product.Where(m => m.Slug == Slug && m.Id != ID).Count() > 0)
+                if (db.Product.Where(m => m.Slug == Slug && m.ID != ID).Count() > 0)
                 {
                     Thongbao.set_flash("Tên danh mục đã tồn tại trong PRODUCT, vui lòng thử lại!", "warning");
                     return RedirectToAction("Edit", "Category");
@@ -178,7 +171,7 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
                 Thongbao.set_flash("Không tồn tại danh mục cần xóa vĩnh viễn!", "warning");
                 return RedirectToAction("Index");
             }
-            int count_child = db.Category.Where(m => m.ParentId == id).Count();
+            int count_child = db.Category.Where(m => m.ParentID == id).Count();
             if (count_child != 0)
             {
                 Thongbao.set_flash("Không thể xóa, danh mục có chứa danh mục con!", "warning");
@@ -234,28 +227,6 @@ namespace WebsiteLaptop.Areas.Admin.Controllers
             {
                 Status = MCategory.Status
             });
-        }
-        //doi trang thai
-        public ActionResult Status(int? id)
-        {
-            MCategory modelCategory = db.Category.Find(id);
-            if (modelCategory == null)
-            {
-
-                return RedirectToAction("Index");
-            }
-            modelCategory.Status = (modelCategory.Status == 1) ? 2 : 1;
-
-            modelCategory.Updated_at = DateTime.Now;
-            modelCategory.Created_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
-            modelCategory.Updated_at = DateTime.Now;
-            modelCategory.Updated_by = 1/*int.Parse(Session["Admin_ID"].ToString());*/;
-
-            db.Entry(modelCategory).State = EntityState.Modified;
-            db.SaveChanges();
-            Thongbao.set_flash("Thay đổi trạng thái thành công!" + " ID = " + id, "success");
-            return RedirectToAction("Index");
-
         }
         // GET: Admin/Category/Delete/5
         public ActionResult Delete(int? id)
