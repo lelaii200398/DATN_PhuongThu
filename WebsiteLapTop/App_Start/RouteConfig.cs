@@ -14,6 +14,12 @@ namespace WebsiteLapTop
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            
+            routes.MapRoute(
+               name: "Dang ky",
+               url: "dang-ky",
+               defaults: new { controller = "Account", action = "Registers", id = UrlParameter.Optional }
+            );
             routes.MapRoute(
                 name: "AllProducts",
                 url: "san-pham",

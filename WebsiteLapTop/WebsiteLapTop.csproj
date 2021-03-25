@@ -304,6 +304,15 @@
     <Compile Include="Library\ModelThongbao.cs" />
     <Compile Include="Library\Thongbao.cs" />
     <Compile Include="Library\XString.cs" />
+    <Compile Include="Migrations\202103230835156_InitialCreate.cs" />
+    <Compile Include="Migrations\202103230835156_InitialCreate.Designer.cs">
+      <DependentUpon>202103230835156_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103230836224_1.cs" />
+    <Compile Include="Migrations\202103230836224_1.Designer.cs">
+      <DependentUpon>202103230836224_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ListOrder.cs" />
     <Compile Include="Models\MCategory.cs" />
     <Compile Include="Models\MContact.cs" />
@@ -466,6 +475,8 @@
     <Content Include="Views\Site\ProductDetail.cshtml" />
     <Content Include="Views\Site\Search.cshtml" />
     <Content Include="Views\Site\_ProductHome.cshtml" />
+    <Content Include="Views\Account\Registers.cshtml" />
+    <Content Include="Views\Shared\_MessgeAlert.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -485,6 +496,14 @@
     <Folder Include="Content\Path\slider\" />
     <Folder Include="Content\Path\user\" />
     <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103230835156_InitialCreate.resx">
+      <DependentUpon>202103230835156_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103230836224_1.resx">
+      <DependentUpon>202103230836224_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

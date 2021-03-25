@@ -15,10 +15,12 @@ namespace WebsiteLaptop.Models
         public int ID { get; set; }
         public string Fullname { get; set; }
         public string Name { get; set; }
+        //[StringLength(12)]
+        //[Required(ErrorMessage = "Độ dài mật khẩu phải từ 6 ký tự trở lên bao gồm 1->9 a->z @~#$#")]
         public string Password { get; set; }
         public string Email { get; set; }
-        public int Gender { get; set; }//Giới tính
-        public int Phone { get; set; }
+        public string Gender { get; set; }//Giới tính
+        public string Phone { get; set; }
         public string Address { get; set; }
         public string Image { get; set; }
         public int Access { get; set; }

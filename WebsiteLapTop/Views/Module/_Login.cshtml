@@ -4,14 +4,19 @@
             data-whatever="getbootstrap" data-backdrop="static" data-keyboard="false">
         Đăng nhập,
     </button>
+    
     <!--<button type="button" class="button_dangky" data-toggle="modal" data-target="#examplePig">
         <a href=""> Đăng ký thành viên</a>
     </button>
     -->
-    <button type="button" class="button_dangky" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"
-            data-keyboard="false">
+    @*<button type="button" class="button_dangky" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"
+                data-keyboard="false">
+            Đăng ký thành viên
+        </button>*@
+    <a type="button" class="button_dangky" href="~/dang-ky">
         Đăng ký thành viên
-    </button>
+    </a>
+
 }
 else
 {
@@ -113,15 +118,15 @@ else
                                     <input type="password" class="form-control pass-res" placeholder="" required
                                            name="pass" id="Pass">
                                 </div>
-                                <div class="col-md-12 mb-3">
+                                <!--<div class="col-md-12 mb-3">
                                     <label class="mini-s-c text-muted pl-2">Xác nhận lại mật khẩu</label>
                                     <input type="password" class="form-control pl-2  repass-res" placeholder=""
                                            required name="repass">
-                                    <div class="invalid-feedback">
-                                        <!--is-invalid-->
-                                        Mật khẩu không khớp. Hãy thử lại.
+                                    <div class="invalid-feedback">-->
+                                <!--is-invalid-->
+                                <!--Mật khẩu không khớp. Hãy thử lại.
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
@@ -169,18 +174,18 @@ else
 <script>
     $('#btn_register').click(function (e) {
         e.preventDefault();
-        @*alert("OK")*@
+        //alert("OK")
         $.ajax({
             url: "account/register",
             type: "POST",
             data: {
                 user: {
-                    Email: $('#Email').val(),
-                    Address: $('#Address').val(),
                     FullName: $('#FullName').val(),
                     Name: $('#Name').val(),// dùng tạm, sau xóa luôn cột này đi
-                    Password: $('#Pass').val(),
+                    Email: $('#Email').val(),
+                    Address: $('#Address').val(),
                     Phone: $('.Phone8').val(),
+                    Password: $('#Pass').val(),
                 }
             },
             dataType: 'json',
@@ -193,7 +198,7 @@ else
                         timer: 5000
                     });
                     return;
-                } else if(data.Code == 1) {
+                } else if (data.Code == 1) {
                     swal({
                         icon: "warning",
                         title: data.Message,
@@ -273,10 +278,7 @@ else
             <hr />
             <div class="row clearfix mx-4 mt-2 mb-3">
                 <div class="col-6" style="color:#4a90e2; font-size: 12px;">
-                    <button data-toggle="modal" data-target="#exampleModal" class="dk-lg text-primary"
-                            style="border:0; background:#fff">
-                        Đăng ký
-                    </button>
+                    <a href="~/dang-ky">Đăng ký tài khooản </a>
                     | <a href="">Quên mật khẩu </a>
                 </div>
                 <div class="col-4"></div>

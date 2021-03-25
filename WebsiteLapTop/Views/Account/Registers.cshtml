@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Registers";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<div class="container">
+    <div class="row">
+        @Html.Partial("_Nofit")
+        <form name="form2" action="" method="post">
+            <div class="swapper mt-5 p-3">
+                <div class="row">
+
+                    <div class="col-md-9" style="margin-left:320px">
+                        <div class="login border p-4 shadow">
+                            <div class="form-group" style="color:#ff0000;text-align:center">
+                                @Html.Raw(ViewBag.Error)
+                            </div>
+                            <h4 class="text-center text-orange my-2 text-bold">ĐĂNG KÝ TÀI KHOẢN</h4>
+                            <div class="form-group">
+                                <label>Họ và tên<span class="text-orange ml-1">(*)</span></label>
+                                <input name="fname" type="text" required placeholder="Tên đăng nhập hoặc Email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Tên đăng nhập<span class="text-orange ml-1">(*)</span></label>
+                                <input name="uname" type="text" required placeholder="Tên đăng nhập hoặc Email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email<span class="text-orange ml-1">(*)</span></label>
+                                <input name="email" type="email" required placeholder="Email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Mật khẩu<span class="text-orange ml-1">(*)</span><span id="error-nwl"></span></label> 
+                                <input name="psw" type="password" required placeholder="Mật khẩu" class="form-control" id="pass1" onkeyup="checkPassSize('pass1');" />
+
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập lại mật khẩu</label>
+                                <input name="repsw" type="password" required placeholder="Nhập lại mật khẩu" class="form-control" id="pass2"
+	onkeyup="checkPass(); return false;" />
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại<span class="text-orange ml-1">(*)</span></label>
+                                <input name="phone" type="text" required placeholder="Số điện thoại" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ<span class="text-orange ml-1">(*)</span></label>
+                                <input name="address" type="text" required placeholder="Địa chỉ sinh sống" class="form-control" />
+                            </div>
+                            <div class="form-group" style="margin-left:100px">
+                                <button type="submit" class="btn text-danger bg-orange"><i class="fa fa-key"></i>Đăng ký</button>
+                                <a href="~/" class="btn  text-danger bg-orange"><i class="fa fa-undo"></i> Quay lại</a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    function checkPassSize(field) {
+        var pass = document.getElementById(field);
+        var message = document.getElementById('error-nwl');
+        var goodColor = "#66cc66";
+        var badColor = "#ff6666";
+        if (pass.value && pass.value.length > 5) {
+            pass.style.backgroundColor = goodColor;
+            message.style.color = goodColor;
+            message.innerHTML = "  "
+            return true;
+        } else {
+            pass.style.backgroundColor = badColor;
+            message.style.color = badColor;
+            message.innerHTML = " Bạn phải nhập ít nhất 6 chữ số! "
+            return false;
+        }
+    }
+
+    function checkPass() {
+        var pass1 = document.getElementById('pass1');
+        var pass2 = document.getElementById('pass2');
+        var message = document.getElementById('error-nwl');
+        var goodColor = "#66cc66";
+        var badColor = "#ff6666";
+
+        if (checkPassSize('pass1') && checkPassSize('pass2')) {
+            if (pass1.value == pass2.value) {
+                pass2.style.backgroundColor = goodColor;
+                message.style.color = goodColor;
+                message.innerHTML = " "
+            } else {
+                pass2.style.backgroundColor = badColor;
+                message.style.color = badColor;
+                message.innerHTML = " Mật khẩu này không khớp "
+            }
+        }
+    }
+
+</script>
